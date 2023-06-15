@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}{{alergy['alergyName']}} Details{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">{{alergy['alergyName']}} Details</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/detail allergies/{{alergy['alergyName']}}" class="nav-link">
+                            Detail
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/edit allergies/{{alergy['alergyName']}}" class="nav-link">
+                            Edit
+                        </a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <tbody>
+                    <tr>
+                        <th scope="row">Alergy Name</th>
+                        <td>{{alergy['alergyName']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Anti-Histamine</th>
+                        <td>{{alergy['antiHistamine']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Allergen</th>
+                        <td>{{alergy['allergen']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Effects</th>
+                        <td>
+                            <ol>
+                                {% for effect in effects %}
+                                    <li>{{effect}}</li>
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
