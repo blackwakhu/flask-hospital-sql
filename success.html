@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block title %}New Patient{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block body %}
+    {% if routeType == "new patient" %}
+        <div class="alert alert-success alert-dismissible">
+            {{name}} details have been uploaded successfully
+        </div>
+        <div class="container">
+            <div class="row justify-content-center my-3">
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/new patient" class="badge badge-success">
+                            New Patient
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/all patients" class="badge badge-success">
+                            All Patients
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/detail patient/{{id}}" class="badge badge-success">
+                            {{name}} Details
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/edit patient/{{id}}" class="badge badge-success">
+                            Edit {{name}}
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% elif routeType == "new disease" %}
+        <div class="alert alert-success alert-dismissible">
+            {{name}} details have been uploaded successfully
+        </div>
+        <div class="container">
+            <div class="row justify-content-center my-3">
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/new disease" class="badge badge-success">
+                            New Disease
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/all diseases" class="badge badge-success">
+                            All Diseases
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/detail disease/{{name}}" class="badge badge-success">
+                            {{name}} Details
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/edit disease/{{name}}" class="badge badge-success">
+                            Edit {{name}}
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% elif routeType == 'new drug' %}
+        <div class="alert alert-success alert-dismissible">
+            {{name}} details have been uploaded successfully
+        </div>
+        <div class="container">
+            <div class="row justify-content-center my-3">
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/new drug" class="badge badge-success">
+                            New Drug
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/all drugs" class="badge badge-success">
+                            All drugs
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/detail drug/{{name}}" class="badge badge-success">
+                            {{name}} Details
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/edit drug/{{name}}" class="badge badge-success">
+                            Edit {{name}}
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% elif routeType == 'new vaccine' %}
+        <div class="alert alert-success alert-dismissible">
+            {{name}} details have been uploaded successfully
+        </div>
+        <div class="container">
+            <div class="row justify-content-center my-3">
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/new vaccine" class="badge badge-success">
+                            New Vaccine
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/all vaccines" class="badge badge-success">
+                            All Vaccines
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/detail vaccine/{{name}}" class="badge badge-success">
+                            {{name}} Details
+                        </a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success">
+                        <a href="/edit vaccine/{{name}}" class="badge badge-success">
+                            Edit {{name}}
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
