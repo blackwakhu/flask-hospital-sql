@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}New Treatment{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="navbar-brand">New Treatment</h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/new patient">New Patient</a>
+                </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container border container-fluid my-3 treatmentPage">
+        <div class="my-3 mx-3">
+            <form action="" method="post">
+                <div class="row justify-content-center">
+                    <label class="form-label" for="patientId">Patient ID</label><br>
+                    <input class="form-control" type="text" name="patientId" id="patientId" placeholder="patient's id e.g. 1" list="mypatientId">
+                    <datalist id="mypatientId">  
+                        {% for patient in patients %}
+                            <option value="{{patient['patientId']}}"></option>
+                        {% endfor %}
+                    </datalist><br>
+                    <label class="form-label" for="weight">Weight</label><br>
+                    <input class="form-control" type="number" name="weight" id="weight"><br>
+                    <label for="specialisation">Doctor Specialisation</label><br>
+                    <select name="specialisation" id="specialisation" class="form-select">
+                        {% for special in specialisation %}
+                            <option value="{{special['Specialisation_specialisation']}}">{{special['Specialisation_specialisation']}}</option>
+                        {% endfor %}
+                    </select><br>
+                    <label class="form-label" for="reason-for-visit">Reason for Visit</label><br>
+                    <textarea name="reason-for-visit" id="reason-for-visit" cols="30" rows="10" class="form-control" placeholder="e.g.  Headache"></textarea>
+                    <label class="form-label" for="doctor-notes">Doctor's Notes</label><br>
+                    <textarea name="doctor-notes" id="doctor-notes" cols="30" rows="10" class="form-control" placeholder="e.g.  Headache"></textarea>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}New Treatment{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="navbar-brand">Ticket {{id}}</h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/success treatment/{{id}}" class="nav-link">
+                        Details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee diagnise/{{id}}/{{patient['fname']}}" class="nav-link">
+                        Diagonise
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee prescription/{{id}}/{{patient['fname']}}" class="nav-link">
+                        Prescription
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/treatment has disease/{{id}}/{{patient['fname']}}" class="nav-link">Disease</a>
+                </li>
+{% endblock %}            
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <tbody>
+                    <tr>
+                        <th scope="row">Ticket no</th>
+                        <td>{{id}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Doctor id</th>
+                        <td>
+                            <a href="/employee details">
+                                {{treatment['Doctor_Employee_id']}}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Doctor's Name</th>
+                        <td>
+                            <a href="/employee details">
+                                {{employee['fname']}} {{employee['lname']}}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Patient Id</th>
+                        <td>
+                            <a href="/detail patient/{{id}}">
+                                {{treatment['Patient_patientId']}}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Patient Name</th>
+                        <td>
+                            <a href="/detail patient/{{id}}">
+                                {{patient['fname']}} {{patient['lname']}}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Weight</th>
+                        <td>{{treatment['weight']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date</th>
+                        <td>{{treatment['date']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Doctor Specialisation</th>
+                        <td>{{treatment['Doctor_Specialisation_specialisation']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reason for Visit</th>
+                        <td>
+                            <ul>
+                                {% for reason in reason_for_visit %}
+                                    <li>{{reason}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Doctor's Note</th>
+                        <td>
+                            <ul>
+                                {% for doctor_note in doctors_notes %}
+                                    <li>{{doctor_note}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Recommendations</th>
+                        <td>
+                            <ul>
+                                {% for recommend in recommendations %}
+                                    <li>{{recommend}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Diagnosis</th>
+                        <td>
+                            <ul>
+                                {% for diagnise in diagnosis %}
+                                    <li>{{diagnise}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Diseases</th>
+                        <td>
+                            <ul>
+                                {% for disease in diseases %}
+                                    <li>
+                                        <a href="/detail disease/{{disease['Diseases_dieseaseName']}}">
+                                            {{disease['Diseases_dieseaseName']}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Drugs</th>
+                        <td>
+                            <ul>
+                                {% for drug in drugs %}
+                                    <li>
+                                        <a href="/detail drug/{{drug['Drugs_drugName']}}">
+                                            {{drug['Drugs_drugName']}}
+                                        </a>, {{drug['prescription']}}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
