@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{alergy['alergyName']}}{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="nav-brand">
+                        Edit {{alergy['alergyName']}}
+                    </h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/detail allergies/{{alergy['alergyName']}}" class="nav-link">
+                        Detail
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/edit allergies/{{alergy['alergyName']}}" class="nav-link">
+                        Edit
+                    </a>
+                </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid border my-3 allergiesPage">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center my-4">
+                    <label class="form-label" for="alergyName">Name</label>
+                    <input type="text" name="alergyName" id="alergyName" class="form-control" value="{{alergy['alergyName']}}">
+                    <label for="effects">Effects</label><br>
+                    <textarea name="effects" id="effects" cols="30" rows="10" class="form-control">{{alergy['effects']}}</textarea>
+                    <label for="allergen">Allergen</label>
+                    <input type="text" name="allergen" id="allergen" class="form-control" value="{{alergy['allergen']}}">
+                    <label for="antiHistamine">Anti Allergy</label>
+                    <input type="text" name="antiHistamine" id="antiHistamine" class="form-control" value="{{alergy['antiHistamine']}}">
+                </div>
+                <div class="row justify-content-center my-4">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
