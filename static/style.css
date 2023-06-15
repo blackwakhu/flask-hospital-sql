@@ -1,0 +1,72 @@
+a{
+    text-decoration: none;
+}
+
+#myLink{
+    color: aliceblue;
+}
+
+#myWord{
+    color: black;
+}
+
+#myLink, #myWord{
+    text-decoration: none;
+}
+
+#myWord:hover{
+    color:blue;
+}
+
+.myNav{
+    /* margin-top: 22px; */
+    font-size: larger;
+    width: 100%;
+}
+
+#myLink1{
+    color: green;
+}
+
+#myLink1:hover{
+    color: white;
+}
+
+.patientPage{
+    background-color: rgba(220, 20, 60, .4);
+}
+
+.diseasePage{
+    background-color: rgba(255, 127, 80, .4);
+}
+
+.allergiesPage{
+    background-color: rgba(138, 43, 226, .4);
+}
+
+.drugsPage{
+    background-color: rgba(0, 255, 127, .4);
+}
+
+.vaccinesPage{
+    background-color: rgba(153, 50, 204, .4);
+}
+
+.treatmentPage{
+    background-color: rgba(255, 215, 0, .4);
+}
+
+.employeePage{
+    background-color: rgba(124, 252, 0, .4);
+}
+
+body{
+    background-image: url("/static/hospital/premium_photo-1658506854326-52eab70cb236.avif");
+    background-repeat: round;
+    background-position: top;
+    background-size: 100%;
+}
+
+.content{
+    min-height: 500px !important;
+}
