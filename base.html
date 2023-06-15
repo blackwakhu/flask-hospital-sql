@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    <script>
+        $('.alert').alert('close');
+    </script>
+</head>
+<body>
+    <header>
+        {% block navbar %}
+        {% endblock %}
+        <div class="myNav container-fluid">
+            <ul class="nav nav-tabs justify-content-center nav-expand-lg nav-fill flex-column flex-sm-row">
+                {% block nav %}
+                {% endblock %}
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <footer style="background-color: blue;">
+        <div class="container-fluid container">
+            <p>Contact us at..</p>
+            <div class="myNav container-fluid">
+                <ul class="nav nav-tabs justify-content-center nav-expand-lg nav-fill flex-column flex-sm-row">
+                    <li class="nav-item">
+                        <a href="tel:+" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/call.png')}}" alt="call">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mailto:" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/envelope.png')}}" alt="email">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.link.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/link.png')}}" alt="link">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.linkedin.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/linkedin.png')}}" alt="linkedin">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.twitter.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/twitter-logo-button.png')}}" alt="twitter">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.facebook.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/facebook-logo-button.png')}}" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.instagram.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/instagram.png')}}" alt="instagram">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://www.location.com" class="nav-link">
+                            <img src="{{url_for('static', filename='communication/location.png')}}" alt="location">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="{{url_for('static', filename='js/function.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap/js/bootstrap.js')}}"></script>
+</body>
+</html>
