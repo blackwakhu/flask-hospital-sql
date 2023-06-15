@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Allergies{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        Search Allergies
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/new allergies" class="nav-link">
+                        New Allergy
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/all allergies" class="nav-link">
+                        All Allergies
+                    </a>
+                </li>
+                    <form action="" method="post" class="d-flex">
+                        <select name="searchType" id="searchType" class="form-select me-2">
+                            <option value="default">Default</option>
+                            <option value="alergyName">Allergy Name</option>
+                            <option value="antiHistamine">Anti-Histamine</option>
+                            <option value="allergen">Allergen</option>
+                        </select>
+                        <input type="search" name="searchItem" id="searchItem" class="form-control me-2" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Anti-Histamine</th>
+                        <th scope="col">Allergen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for allergy in allergies %}
+                        <tr>
+                            <th scope="row">{{allergies.index(allergy)+1}}</th>
+                            <td>
+                                <a href="/detail allergies/{{allergy['alergyName']}}">
+                                    {{allergy['alergyName']}}
+                                </a>
+                            </td>
+                            <td>{{allergy['antiHistamine']}}</td>
+                            <td>{{allergy['allergen']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit allergies/{{allergy['alergyName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div> 
+    </div>
+{% endblock %}
