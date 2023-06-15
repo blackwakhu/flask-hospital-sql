@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}New Allergies{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">New Allergy</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid border my-3 allergiesPage">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center my-4">
+                    <label class="form-label" for="alergyName">Name</label>
+                    <input type="text" name="alergyName" id="alergyName" class="form-control" placeholder="e.g. claustrophobia">
+                    <label for="effects">Effects</label><br>
+                    <textarea name="effects" id="effects" cols="30" rows="10" class="form-control" placeholder="e.g. Itching on the skin"></textarea>
+                    <label for="allergen">Allergen</label>
+                    <input type="text" name="allergen" id="allergen" class="form-control" placeholder="e.g. pollen">
+                    <label for="antiHistamine">Anti Allergy</label>
+                    <input type="text" name="antiHistamine" id="antiHistamine" class="form-control" placeholder="e.g. antiClaustro">
+                </div>
+                <div class="row justify-content-center my-4">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
