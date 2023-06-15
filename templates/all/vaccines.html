@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}All Vaccines{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">All Vaccines</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age Administered</th>
+                        <th scope="col">Manufacturer</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vaccine in vaccines %}
+                        <tr>
+                            <th scope="row">{{vaccines.index(vaccine)+1}}</th>
+                            <td>
+                                <a href="/detail vaccine/{{vaccine['vaccineName']}}">
+                                    {{vaccine['vaccineName']}}
+                                </a>
+                            </td>
+                            <td>{{vaccine['ageAdministered']}}</td>
+                            <td>{{vaccine['manufacturer']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

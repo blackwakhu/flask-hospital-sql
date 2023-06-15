@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}All Treatment{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">All Treatment</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">TIcket No.</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Doctor Name</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for treat in treatment %}
+                        <tr>
+                            <th scope="row">
+                                <a href="/success treatment/{{treat.id}}">{{treat['id']}}</a>
+                            </th>
+                            <td>
+                                <a href="/detail patient/{{treat.Patient_patientId}}">{{treat['patientFname']}}</a>
+                            </td>
+                            <td>
+                                <a href="/employee details">{{treat['employeeFname']}}</a>
+                            </td>
+                            <td>{{treat['weight']}}</td>
+                            <td>{{treat.date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

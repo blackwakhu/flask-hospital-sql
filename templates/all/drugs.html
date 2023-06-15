@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}All Drugs{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">All Drugs</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Manufacturer</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for drug in drugs %}
+                        <tr>
+                            <th scope="row">{{drugs.index(drug)+1}}</th>
+                            <td>
+                                <a href="/detail drug/{{drug['drugName']}}">
+                                    {{drug['drugName']}}
+                                </a>
+                            </td>
+                            <td>{{drug['drugManufacturer']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit drug/{{drug['drugName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
