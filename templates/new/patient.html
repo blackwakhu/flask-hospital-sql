@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}New Patient{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">New Patient</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container border my-3 container-fluid patientPage">
+        <div class="my-3 mx-3">
+            <form action="" method="post">
+                <div class="row justify-content-center">
+                    <label class="form-label" for="id">ID</label><br>
+                    <input type="number" name="id" id="id" class="form-control" placeholder="i.e. Birth certificate number, Identity Number, Passport Number, military id"><br>
+                    <label class="form-label" for="fname">First Name</label><br>
+                    <input type="text" name="fname" id="fname" class="form-control" placeholder="e.g Jane"><br>
+                    <label class="form-label" for="lname">Last Name</label><br>
+                    <input type="text" name="lname" id="lname" class="form-control" placeholder="e.g Doe"><br>
+                    <label class="form-label" for="email">Email</label><br>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="e.g example@example.com"><br>
+                    <label class="form-label" for="telephone">Telephone</label><br>
+                    <input type="tel" name="telephone" id="telephone" class="form-control" placeholder="e.g +123456789"><br>
+                    <label class="form-label" for="address">Address</label><br>
+                    <input type="number" name="address" id="address" class="form-control" placeholder="e.g 1234"><br>
+                    <label class="form-label" for="city">City</label><br>
+                    <input type="text" name="city" id="city" class="form-control" placeholder="e.g Example city"><br>
+                    <label class="form-label" for="paymentMethod">Payment Method</label><br>
+                    <select name="paymentMethod" class="form-select" required>
+                        <option value="Money">Money</option>
+                        <option value="Check">Check</option>
+                        <option value="First Health Insurance Company">First Health Insurance Company</option>
+                        <option value="National Health Insurance Fund">National Health Insurance Fund</option>
+                        <option value="AON">AON</option>
+                        <option value="The Trans Health Insurance company">The Trans Health Insurance company</option>
+                    </select><br>
+                    <label class="form-label" for="DOB">Date of Birth</label><br>
+                    <input type="date" name="DOB" id="DOB" class="form-control"><br>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

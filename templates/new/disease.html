@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}All Patients{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">New Disease</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid border my-3 diseasePage">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center my-4">
+                    <label class="form-label" for="name">Disease Name</label><br>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="e.g Zika">
+                    <label class="form-label" for="typeofCause">Type of Micro-organism</label><br>
+                    <select name="typeofCause" class="form-select" required>
+                        <option value="Virus">Virus</option>
+                        <option value="Bacteria">Bacteria</option>
+                        <option value="Protozoa">Protozoa</option>
+                        <option value="Amoeba">Amoeba</option>
+                        <option value="Fungi">Fungi</option>
+                        <option value="Parasite">Parasite</option>
+                        <option value="Chemical">Chemical</option>
+                        <option value="Bacteria and Virus">Bacteria and Virus</option>
+                        <option value="Parasite, Bacteria and Virus">Parasite, Bacteria and Virus</option>
+                        <option value="Others">Others</option>
+                    </select><br>
+                    <label class="form-label" for="nameofCause">Biological Name</label><br>
+                    <input type="text" name="nameofCause" id="nameofCause" class="form-control" placeholder="e.g. Plasmodium entecarius">
+                    <label class="form-label" for="spread">Mode of Spread </label><br>
+                    <textarea name="spread" id="spread" cols="30" rows="10" class="form-control" placeholder="e.g. Contact"></textarea>
+                    <label class="form-label" for="symptoms">Symptoms</label><br>
+                    <textarea name="symptoms" id="symptoms" cols="30" rows="10" class="form-control" placeholder="e.g. 1. Headache"></textarea>
+                    <label class="form-label" for="description">Disease Description</label><br>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="e.g it attacks the lungs"></textarea>
+                    <label class="form-label" for="treatment">Treatment</label><br>
+                    <textarea name="treatment" id="treatment" cols="30" rows="10" class="form-control" placeholder="e.g. Use antibioitics"></textarea>
+                    <label class="form-label" for="prevention">Prevention</label><br>
+                    <textarea name="prevention" id="prevention" cols="30" rows="10" class="form-control" placeholder="e.g. 1. regular vaccination"></textarea>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

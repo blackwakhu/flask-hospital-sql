@@ -1,0 +1,43 @@
+{% extends 'base.html' %}    
+
+{% block title %}Employee Sign In{% endblock %}
+
+{% block body %}
+    <div class="container border container-fluid my-4" style="background-color: rgba(0, 0, 255, .4); height: 500px;">
+        <div class="my-4 mx-3">
+            <form action="" method="post">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <label class="form-label" for="id">ID</label><br>
+                        <input type="text" name="id" id="id" class="form-control" required><br>
+                        <label class="form-label" for="password">Password</label><br>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        {% if isUser %}
+                            <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+                                The user of the id you entered does not exists. Please try again.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div><br>
+                        {% elif isCorrect %}
+                            <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+                                The password you entered is incorrect. Please try again.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div><br>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}    

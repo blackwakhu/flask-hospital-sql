@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}New Drug{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">New Drug</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container border my-3 container-fluid drugsPage">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center">
+                    <label class="form-label" for="drugName">Name</label><br>
+                    <input type="text" name="drugName" id="drugName" class="form-control" placeholder="e.g. panadol">
+                    <label class="form-label" for="drugManufacturer">Manufacturer</label><br>
+                    <input type="text" name="drugManufacturer" id="drugManufacturer" class="form-control" placeholder="e.g. panadol inc">
+                </div>
+                <div class="row justify-content-center my-4">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

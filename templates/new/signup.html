@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee Sign Up Page{% endblock %}
+
+{% block body %}
+    <div class="container border my-4 container-fluid" style="background-color: rgba(173, 255, 47, .4);">
+        <div class="my-4 mx-3">
+            <form method="post" action="">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <label class="form-label" for="id">ID</label><br>
+                        <input type="number" name="id" id="id" required class="form-control" placeholder="e.g. 1"><br>
+                        {% if user %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                The id entered already exists in the system
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div><br>
+                        {% endif %}
+                        <label class="form-label" for="fname">First Name</label><br>
+                        <input type="text" name="fname" id="fname" required class="form-control" placeholder="e.g. Jane"><br>
+                        <label class="form-label" for="lname">Last Name</label><br>
+                        <input type="text" name="lname" id="lname" class="form-control" placeholder="e.g. Doe"><br>
+                        <label class="form-label" for="password1">Password</label><br>
+                        <input type="password" name="password1" id="password1" required class="form-control" placeholder="e.g. password"><br>
+                        {% if tryMessage %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                The passwords do not match. Please try again
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div><br>
+                        {% endif %}
+                        <label class="form-label" for="password2">Try Password Again</label><br>
+                        <input type="password" name="password2" id="password2" required class="form-control" placeholder="e.g. password"><br>
+                        <label class="form-label" for="email">Email</label><br>
+                        <input type="email" name="email" id="email" required class="form-control" placeholder="e.g. example@example.com"><br>
+                        <label class="form-label" for="telephone">Telephone</label><br>
+                        <input type="tel" name="telephone" id="telephone" required class="form-control" placeholder="e.g. +1242423243423"><br>
+                        <label class="form-label" for="address">Address</label><br>
+                        <input type="text" name="address" id="address" class="form-control" placeholder="e.g. 1234"><br>
+                        <label class="form-label" for="city">City</label><br>
+                        <input type="text" name="city" id="city" class="form-control" placeholder="e.g Example city"><br>
+                        <label class="form-label" for="dateEmployed">Date Employed</label><br>
+                        <input type="date" name="dateEmployed" id="dateEmployed" required class="form-control" placeholder="01/01/0001"><br>
+                        <label class="form-label" for="rank">Post</label><br>
+                        <select name="rank" class="form-select" required>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Surgeon">Surgeon</option>
+                            <option value="Specialist">Specialist</option>
+                            <option value="Pharmacists">Pharmacists</option>
+                            <option value="Accounts">Accounts</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
