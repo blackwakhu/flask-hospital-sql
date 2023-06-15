@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{patient['fname']}}{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        {{patient['fname']}} Details
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/detail patient/{{patient['patientId']}}" class="nav-link">
+                        {{patient['fname']}} Details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/edit patient/{{patient['patientId']}}" class="nav-link">
+                        Edit {{patient['fname']}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/patient add allergy/{{patient['patientId']}}/{{patient['fname']}}"  class="nav-link">
+                        Add Alergy
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/patient add vaccine/{{patient['patientId']}}/{{patient['fname']}}" class="nav-link">
+                        Add Vaccine
+                    </a>
+                </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container border my-3 container-fluid patientPage">
+        <div class="my-3 mx-3">
+            <form action="" method="post">
+                <div class="row justify-content-center">
+                    <label class="form-label" for="fname">First Name</label><br>
+                    <input type="text" name="fname" id="fname" class="form-control" value="{{patient['fname']}}"><br>
+                    <label class="form-label" for="lname">Last Name</label><br>
+                    <input type="text" name="lname" id="lname" class="form-control" value="{{patient['lname']}}"><br>
+                    <label class="form-label" for="email">Email</label><br>
+                    <input type="email" name="email" id="email" class="form-control" value="{{patient['email']}}"><br>
+                    <label class="form-label" for="telephone">Telephone</label><br>
+                    <input type="tel" name="telephone" id="telephone" class="form-control" value="{{patient['tel']}}"><br>
+                    <label class="form-label" for="address">Address</label><br>
+                    <input type="number" name="address" id="address" class="form-control" value="{{patient['address']}}"><br>
+                    <label class="form-label" for="city">City</label><br>
+                    <input type="text" name="city" id="city" class="form-control" value="{{patient['city']}}"><br>
+                    <label class="form-label" for="paymentMethod">Payment Method</label><br>
+                    <select name="paymentMethod" class="form-select" required>
+                        <option value="Money">Money</option>
+                        <option value="Check">Check</option>
+                        <option value="First Health Insurance Company">First Health Insurance Company</option>
+                        <option value="National Health Insurance Fund">National Health Insurance Fund</option>
+                        <option value="AON">AON</option>
+                        <option value="The Trans Health Insurance company">The Trans Health Insurance company</option>
+                    </select><br>
+                    <label class="form-label" for="DOB">Date of Birth</label><br>
+                    <input type="date" name="DOB" id="DOB" class="form-control" value="{{patient['DOB']}}"><br>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

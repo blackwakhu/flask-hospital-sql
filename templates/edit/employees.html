@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee Sign Up Page{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="nav-brand">
+                        Edit {{employee.fname}}
+                    </h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee details" class="nav-link">Detail</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee edit" class="nav-link">Edit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee password" class="nav-link">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee specialisation" class="nav-link">Specialisation</a>
+                </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container border my-3 container-fluid employeePage">
+        <div class="my-4 mx-3">
+            <form method="post" action="">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <label class="form-label" for="fname">First Name</label><br>
+                        <input type="text" name="fname" id="fname" required class="form-control" value="{{employee.fname}}"><br>
+                        <label class="form-label" for="lname">Last Name</label><br>
+                        <input type="text" name="lname" id="lname" class="form-control" value="{{employee.lname}}"><br>
+                        <label class="form-label" for="email">Email</label><br>
+                        <input type="email" name="email" id="email" required class="form-control" value="{{employee.email}}"><br>
+                        <label class="form-label" for="telephone">Telephone</label><br>
+                        <input type="tel" name="telephone" id="telephone" required class="form-control" value="{{employee.telephone}}"><br>
+                        <label class="form-label" for="address">Address</label><br>
+                        <input type="text" name="address" id="address" class="form-control" value="{{employee.address}}"><br>
+                        <label class="form-label" for="city">City</label><br>
+                        <input type="text" name="city" id="city" class="form-control" value="{{employee.city}}"><br>
+                        <label class="form-label" for="dateEmployed">Date Employed</label><br>
+                        <input type="date" name="dateEmployed" id="dateEmployed" required class="form-control" value="{{employee.dateEmployed}}"><br>
+                        <label class="form-label" for="rank">Post</label><br>
+                        <select name="rank" class="form-select" required>
+                            <option value="{{employee.rank}}">{{employee.rank}}</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Surgeon">Surgeon</option>
+                            <option value="Specialist">Specialist</option>
+                            <option value="Pharmacists">Pharmacists</option>
+                            <option value="Accounts">Accounts</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

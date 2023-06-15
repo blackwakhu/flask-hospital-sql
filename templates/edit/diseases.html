@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{disease['dieseaseName']}}{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        {{disease['dieseaseName']}}
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/detail disease/{{disease['dieseaseName']}}" class="nav-link">
+                        Detail {{disease['dieseaseName']}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/edit disease/{{disease['dieseaseName']}}" class="nav-link">
+                        Edit {{disease['dieseaseName']}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/disease add drug/{{disease['dieseaseName']}}" class="nav-link">
+                        Add Drugs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/disease add vaccine/{{disease['dieseaseName']}}" class="nav-link">
+                        Add Vaccines
+                    </a>
+                </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid border diseasePage my-3">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center my-4">
+                    <label class="form-label" for="name">Disease Name</label><br>
+                    <input type="text" name="name" id="name" class="form-control" value="{{disease['dieseaseName']}}">
+                    <label class="form-label" for="typeofCause">Type of Micro-organism</label><br>
+                    <select name="typeofCause" class="form-select" value="{{disease['typeofCause']}}">
+                        <option value="Virus">Virus</option>
+                        <option value="Bacteria">Bacteria</option>
+                        <option value="Protozoa">Protozoa</option>
+                        <option value="Fungi">Fungi</option>
+                        <option value="Amoeba">Amoeba</option>
+                        <option value="Others">Others</option>
+                    </select><br>
+                    <label class="form-label" for="nameofCause">Biological Name</label><br>
+                    <input type="text" name="nameofCause" id="nameofCause" class="form-control" value="{{disease['nameofCause']}}">
+                    <label class="form-label" for="spread">Mode of Spread </label><br>
+                    <textarea name="spread" id="spread" cols="30" rows="10" class="form-control">{{disease['spread']}}</textarea>
+                    <label class="form-label" for="symptoms">Symptoms</label><br>
+                    <textarea name="symptoms" id="symptoms" cols="30" rows="10" class="form-control">{{disease['symptoms']}}</textarea>
+                    <label class="form-label" for="description">Disease Description</label><br>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{disease['description']}}</textarea>
+                    <label class="form-label" for="treatment">Treatment</label><br>
+                    <textarea name="treatment" id="treatment" cols="30" rows="10" class="form-control">{{disease['treatment']}}</textarea>
+                    <label class="form-label" for="prevention">Prevention</label><br>
+                    <textarea name="prevention" id="prevention" cols="30" rows="10" class="form-control">{{disease['prevention']}}</textarea>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

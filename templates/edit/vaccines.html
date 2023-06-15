@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{vaccine['vaccineName']}}{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">Edit {{vaccine['vaccineName']}}</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/detail vaccine/{{vaccine['vaccineName']}}" class="nav-link">
+                            Detail
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/edit vaccine/{{vaccine['vaccineName']}}" class="nav-link">
+                            Edit
+                        </a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid border vaccinesPage my-3">
+        <div class="mx-3 my-4">
+            <form action="" method="post">
+                <div class="row justify-content-center my-4">
+                    <label class="form-label" for="vaccineName">Name</label><br>
+                    <input type="text" name="vaccineName" id="vaccineName" class="form-control" value="{{vaccine['vaccineName']}}">
+                    <label class="form-label" for="ageAdministered">Age Administered</label><br>
+                    <input type="number" name="ageAdministered" id="ageAdministered" class="form-control" value="{{vaccine['ageAdministered']}}" min="0" max="100">
+                    <label class="form-label" for="manufacturer">Manufacturer</label><br>
+                    <input type="text" name="manufacturer" id="manufacturer" class="form-control" value="{{vaccine['manufacturer']}}">
+                </div>
+                <div class="row justify-content-center my-4">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <input type="reset" value="Reset" class="btn btn-danger">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
