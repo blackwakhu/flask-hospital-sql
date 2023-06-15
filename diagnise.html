@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Ticket {{treatId}} Diagnosis{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="navbar-brand">Ticket {{treatId}} Diagnosis</h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/success treatment/{{treatId}}" class="nav-link">
+                        Details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee diagnise/{{treatId}}/{{fname}}" class="nav-link">
+                        Diagonise
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee prescription/{{treatId}}/{{fname}}" class="nav-link">
+                        Prescription
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/treatment has disease/{{treatId}}/{{fname}}" class="nav-link">Disease</a>
+                </li>
+{% endblock %}            
+
+{% block body %}
+    <div class="container container-fluid border my-3 treatmentPage">
+        <div class="my-3 mx-3">
+            <form action="" method="post">
+                <div class="row">
+                    <label for="diagnosis">Diagnosis</label><br>
+                    <textarea name="diagnosis" id="diagnosis" cols="30" rows="10" class="form-control" placeholder="">{{treatment['diagnosis']}}</textarea><br>
+                    <label for="recommendations">Recommendations</label><br>
+                    <textarea name="recommendations" id="recommendations" cols="30" rows="10" class="form-control" placeholder="">{{treatment['recomendations']}}</textarea><br>
+                </div>
+                <div class="row justify-content-center my-3">
+                    <div class="col-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success">
+                            <a href="/treatment has disease/{{treatId}}/{{fname}}">
+                                <span id="myLink">
+                                    Add Disease
+                                </span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
