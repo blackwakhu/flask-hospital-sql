@@ -1,0 +1,65 @@
+{%extends 'base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid myNav">
+        <ul class="nav nav-tabs justify-content-end">
+            <li class="nav-item">
+                <button class="btn btn-outline-success">
+                    <a href="/signin">
+                        <span id="myLink1">
+                            Sign in
+                        </span>
+                    </a>
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-outline-success">
+                    <a href="/signup">
+                        <span id="myLink">
+                            Sign up
+                        </span>
+                    </a>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{url_for('static', filename='hospital/photo-1519494026892-80bbd2d6fd0d.avif')}}" class="d-block w-100" alt="the hospital lobby" height="540px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: brown">Personnel</h5>
+                <p style="color: blue">We offer kind and interactive services to our patients</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{url_for('static', filename='hospital/photo-1504813184591-01572f98c85f.avif')}}" class="d-block w-100" alt="surgery" height="540px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: brown">Skills</h5>
+                <p style="color: blue">Our staff are among the most skilled personnel in the business</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{url_for('static', filename='hospital/photo-1512678080530-7760d81faba6.avif')}}" class="d-block w-100" alt="ward" height="540px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: brown">Equipment</h5>
+                <p style="color: blue">We offer the best and upto date equipment which are more than enough</p>
+            </div>
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+  </div>
+{% endblock %}
