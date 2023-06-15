@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}{{patient['fname']}} Details{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h2 class="nav-brand">
+                            {{patient['fname']}} Details
+                        </h2>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/detail patient/{{patient['patientId']}}" class="nav-link">
+                            {{patient['fname']}} Details
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/edit patient/{{patient['patientId']}}" class="nav-link">
+                            Edit {{patient['fname']}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/patient add allergy/{{patient['patientId']}}/{{patient['fname']}}"  class="nav-link">
+                            Add Alergy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/patient add vaccine/{{patient['patientId']}}/{{patient['fname']}}" class="nav-link">
+                            Add Vaccine
+                        </a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <tbody>
+                    <tr>
+                        <th scope="row">Patient Id</th>
+                        <td>{{patient['patientId']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">First Name</th>
+                        <td>{{patient['fname']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last Name</th>
+                        <td>{{patient['lname']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date of Birth</th>
+                        <td>{{patient['DOB']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td>{{patient['email']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Contact Details</th>
+                        <td>{{patient['tel']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Address</th>
+                        <td>{{patient['address']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">City</th>
+                        <td>{{patient['city']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Payment Method</th>
+                        <td>{{patient['paymentMethod']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Allergies</th>
+                        <td>
+                            <ol>
+                                {% for allergy in allergies %}
+                                    <li>
+                                        <a href="/detail allergies/{{allergy['Alergies_alergyName']}}">
+                                            {{allergy['Alergies_alergyName']}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vaccines Administered</th>
+                        <td>
+                            <ol>
+                                {% for vaccine in vaccines %}
+                                    <li>
+                                        <a href="/detail vaccine/{{vaccine['Vaccine_vaccineName']}}">
+                                            {{vaccine['Vaccine_vaccineName']}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Treatment History</th>
+                        <td>
+                            <ol>
+                                {% for treat in treatment %}
+                                    <li>
+                                        <a href="/success treatment/{{treat.id}}">
+                                            {{treat.date}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

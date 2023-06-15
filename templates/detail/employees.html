@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}{{employee['fname']}} details{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">{{employee['fname']}} Details</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee details" class="nav-link">Detail</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee edit" class="nav-link">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee password" class="nav-link">Change Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee specialisation" class="nav-link">Specialisation</a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <tbody>
+                    <tr>
+                        <th scope="row">Employee ID</th>
+                        <td>{{employee['id']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">First Name</th>
+                        <td>{{employee['fname']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last Name</th>
+                        <td>{{employee['lname']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td>{{employee['email']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rank</th>
+                        <td>{{employee['rank']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date Employed</th>
+                        <td>{{employee['dateEmployed']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Telephone</th>
+                        <td>{{employee['telephone']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Address</th>
+                        <td>{{employee['address']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">City</th>
+                        <td>{{employee['city']}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Station</th>
+                        <td>
+                            <ul>
+                                {% for station in stations %}
+                                    <li>{{station['specialisation']}}, {{station['station']}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

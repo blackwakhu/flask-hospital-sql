@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail {{disease['dieseaseName']}}{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                        <li class="nav-item">
+                            <h2 class="nav-brand">
+                                {{disease['dieseaseName']}}
+                            </h2>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/detail disease/{{disease['dieseaseName']}}" class="nav-link">
+                                Detail {{disease['dieseaseName']}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/edit disease/{{disease['dieseaseName']}}" class="nav-link">
+                                Edit {{disease['dieseaseName']}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/disease add drug/{{disease['dieseaseName']}}" class="nav-link">
+                                Add Drugs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/disease add vaccine/{{disease['dieseaseName']}}" class="nav-link">
+                                Add Vaccines
+                            </a>
+                        </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <h2>Details</h2>
+        <div class="row justify-content-right">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover table-dark">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Disease Name</th>
+                                <td>{{disease['dieseaseName']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Type of Cause</th>
+                                <td>{{disease['typeofCause']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Name of Cause</th>
+                                <td>{{disease['nameofCause']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spread</th>
+                                <td>{{disease['spread']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Treatment</th>
+                                <td>{{disease['treatment']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drugs</th>
+                                <td>
+                                    <ul>
+                                        {% for drug in drugs %}
+                                            <li>
+                                                <a href="/detail drug/{{drug['Drugs_drugName']}}">
+                                                    {{drug['Drugs_drugName']}}  
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Vaccines</th>
+                                <td>
+                                    <ul>
+                                        {% for vaccine in vaccines %}
+                                            <li>
+                                                <a href="/detail vaccine/{{vaccine['Vaccine_vaccineName']}}">
+                                                    {{vaccine['Vaccine_vaccineName']}}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Description</th>
+                                <td>{{disease['description']}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Symptoms</th>
+                                <td>
+                                    <ol>
+                                        {% for symptom in symptoms %}
+                                            <li>{{symptom}}</li>
+                                        {% endfor %}
+                                    </ol>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prevention</th>
+                                <td>
+                                    <ol>
+                                        {% for prevent in prevention %}
+                                            <li>{{prevent}}</li>
+                                        {% endfor %}
+                                    </ol>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

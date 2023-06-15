@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}{{vaccine['vaccineName']}} Details{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">{{vaccine['vaccineName']}} Details</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/detail vaccine/{{vaccine['vaccineName']}}" class="nav-link">
+                            Detail
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/edit vaccine/{{vaccine['vaccineName']}}" class="nav-link">
+                            Edit
+                        </a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <tr>
+                    <th scope="row">Vaccine Name</th>
+                    <td>{{vaccine['vaccineName']}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Age Administered</th>
+                    <td>{{vaccine['ageAdministered']}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Manufacturer</th>
+                    <td>{{vaccine['manufacturer']}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}
