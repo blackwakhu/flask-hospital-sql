@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}All Allergies{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                    <li class="nav-item">
+                        <h1 class="nav-brand">All Allergies</h1>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Anti-Histamine</th>
+                        <th scope="col">Allergen</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for allergy in allergies %}
+                        <tr>
+                            <th scope="row">{{allergies.index(allergy)+1}}</th>
+                            <td>
+                                <a href="/detail allergies/{{allergy['alergyName']}}">
+                                    {{allergy['alergyName']}}
+                                </a>
+                            </td>
+                            <td>{{allergy['antiHistamine']}}</td>
+                            <td>{{allergy['allergen']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit allergies/{{allergy['alergyName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div> 
+    </div>
+{% endblock %}
