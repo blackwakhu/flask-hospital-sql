@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Vaccine{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        Search Vaccine
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/new vaccine" class="nav-link">
+                        New Vaccine
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/all vaccines" class="nav-link">
+                        All Vaccines
+                    </a>
+                </li>
+                <form action="" method="post" class="d-flex">
+                    <select name="searchType" id="searchType" class="form-select me-2">
+                        <option value="default">Default</option>
+                        <option value="vaccineName">Vaccine Name</option>
+                        <option value="manufacturer">Manufacturer</option>
+                        <option value="ageAdministered">Age Administered</option>
+                    </select>
+                    <input type="search" name="searchItem" id="searchItem" class="form-control me-2" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age Administered</th>
+                        <th scope="col">Manufacturer</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vaccine in vaccines %}
+                        <tr>
+                            <th scope="row">{{vaccines.index(vaccine)+1}}</th>
+                            <td>
+                                <a href="/detail vaccine/{{vaccine['vaccineName']}}">
+                                    {{vaccine['vaccineName']}}
+                                </a>
+                            </td>
+                            <td>{{vaccine['ageAdministered']}}</td>
+                            <td>{{vaccine['manufacturer']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

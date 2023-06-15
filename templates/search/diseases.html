@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Disease{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        Search Disease
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/new disease" class="nav-link">
+                        New Disease
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/all diseases" class="nav-link">
+                        All Diseases
+                    </a>
+                </li>
+                    <form action="" method="post" class="d-flex">
+                        <select name="searchType" id="searchType" class="form-select me-2">
+                            <option value="default">Default</option>
+                            <option value="dieseaseName">Disease Name</option>
+                            <option value="typeofCause">Type of Cause</option>
+                            <option value="nameofCause">Name of Cause</option>
+                        </select>
+                        <input type="search" name="searchItem" id="searchItem" class="form-control me-2" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type of cause</th>
+                        <th scope="col">Cause</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disease in diseases %}
+                        <tr>
+                            <th scope="row">{{diseases.index(disease)+1}}</th>
+                            <td>
+                                <a href="/detail disease/{{disease['dieseaseName']}}">
+                                    <span id="myWord">
+                                        {{disease['dieseaseName']}}
+                                    </span>
+                                </a>
+                            </td>
+                            <td>{{disease['typeofCause']}}</td>
+                            <td><p class="font-italic">{{disease['nameofCause']}}</p></td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit disease/{{disease['dieseaseName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

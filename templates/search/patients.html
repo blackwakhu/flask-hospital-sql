@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Patient{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav%}
+                <li class="nav-item">
+                    <h2 class="nav-brand">
+                        Search Patient
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <a href="/new patient" class="nav-link">
+                        New Patient
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/all patients" class="nav-link">
+                        All Patients
+                    </a>
+                </li>
+                    <form action="" method="post" class="d-flex">
+                        <select name="searchType" id="searchType" class="form-select me-2">
+                            <option value="default">Default</option>
+                            <option value="fname">First Name</option>
+                            <option value="lname">Last Name</option>
+                            <option value="patientId">Patient Id</option>
+                            <option value="email">Email</option>
+                        </select>
+                        <input type="search" name="searchItem" id="searchItem" class="form-control me-2" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+{% endblock %}
+
+{% block body %}
+    <div class="container container-bordered container-fluid my-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Payment Method</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                        <tr>
+                            <th scope="row">{{patient['patientId']}}</th>
+                            <td>
+                                <a href="/detail patient/{{patient['patientId']}}">
+                                    {{patient['fname']}}
+                                </a>
+                            </td>
+                            <td>{{patient['lname']}}</td>
+                            <td>{{patient['email']}}</td>
+                            <td>{{patient['paymentMethod']}}</td>
+                            <td>{{patient['DOB']}}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit patient/{{patient['patientId']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
