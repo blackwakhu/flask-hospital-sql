@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Specialisation{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %} 
+                    <li class="nav-item">
+                        <h1 class="nav-brand">{{employee['fname']}} Specialisation</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee details" class="nav-link">Detail</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee edit" class="nav-link">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee password" class="nav-link">Change Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/employee specialisation" class="nav-link">Specialisation</a>
+                    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="myNav container-fluid my-2">
+        <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+                <form action="" method="post" class="d-flex">
+                    <select name="selectChoice" id="selectChoice" class="form-select me-2">
+                        <option value="default">Default</option>
+                        <option value="name">Type of Specialisation</option>
+                        <option value="station">Station</option>
+                    </select>
+                    <input type="search" name="searchItem" id="searchItem" class="me-2 form-control">
+                    <input type="submit" value="Search" class="btn btn-outline-success">
+                </form>
+            </li>
+        </ul>
+    </div>
+    <div class="container container-bordered container-fluid my-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Specialisation</th>
+                        <th scope="col">Station</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for special in specialisations %}
+                        <tr>
+                            <td>
+                                {{special['specialisation']}}
+                            </td>
+                            <td>
+                                {{special['station']}}
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-success">
+                                    <a href="/employee specialise/{{special['specialisation']}}">
+                                        <span>
+                                            Add
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

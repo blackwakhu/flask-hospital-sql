@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block title %}Ticket {{treatId}} Diseases{% endblock %}
+
+{% block navbar %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block nav %}
+                <li class="nav-item">
+                    <h1 class="navbar-brand">Ticket {{treatId}} Disease</h1>
+                </li>
+                <li class="nav-item">
+                    <a href="/success treatment/{{treatId}}" class="nav-link">
+                        Details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee diagnise/{{treatId}}/{{fname}}" class="nav-link">
+                        Diagonise
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/employee prescription/{{treatId}}/{{fname}}" class="nav-link">
+                        Prescription
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/treatment has disease/{{treatId}}/{{fname}}" class="nav-link">Disease</a>
+                </li>
+{% endblock %}            
+
+{% block body %}
+    <div class="container container-fluid my-3 treatmentPage">
+        <div class="container-fluid myNav my-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <h1 class="nav-brand">
+                        Selected Diseases
+                    </h1>
+                </li>
+            </ul>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type of cause</th>
+                        <th scope="col">Cause</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for seldisease in seldiseases %}
+                        <tr>
+                            <th scope="row">{{seldiseases.index(seldisease)+1}}</th>
+                            <td>
+                                <a href="/detail disease/{{seldisease['dieseaseName']}}">
+                                    {{seldisease['dieseaseName']}}
+                                </a>
+                            </td>
+                            <td>{{seldisease['typeofCause']}}</td>
+                            <td><p class="font-italic">{{seldisease['nameofCause']}}</p></td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit disease/{{seldisease['dieseaseName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="">
+                                        <span id="myLink">
+                                            Delete
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid myNav my-3">
+            <ul class="nav nav-pills justify-content-end">
+                <form action="" method="post" class="d-flex">
+                    <select name="searchType" id="searchType" class="form-select me-2">
+                        <option value="default">Default</option>
+                        <option value="dieseaseName">Disease Name</option>
+                        <option value="typeofCause">Type of Cause</option>
+                        <option value="nameofCause">Name of Cause</option>
+                    </select>
+                    <input type="search" name="searchItem" id="searchItem" class="form-control me-2" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </ul>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type of cause</th>
+                        <th scope="col">Cause</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disease in diseases %}
+                        <tr>
+                            <th scope="row">{{diseases.index(disease)+1}}</th>
+                            <td>
+                                <a href="/detail disease/{{disease['dieseaseName']}}">
+                                    {{disease['dieseaseName']}}
+                                </a>
+                            </td>
+                            <td>{{disease['typeofCause']}}</td>
+                            <td><p class="font-italic">{{disease['nameofCause']}}</p></td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/edit disease/{{disease['dieseaseName']}}">
+                                        <span id="myLink">
+                                            Edit
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="/treatment add disease/{{treatId}}/{{fname}}/{{disease['dieseaseName']}}">
+                                        <span id="myLink">
+                                            Add
+                                        </span>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
